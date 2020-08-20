@@ -29,5 +29,22 @@ if (playerInput == 1) {
 } else if (playerInput == 3) {
     playerMove = 'nożyce';
 } else {
-    playerMove = "nienznay ruch";
+    playerMove = 'nieznany ruch';
+}
+
+// Print resoult
+printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + playerMove + '.');
+
+if (computerMove == 'kamień' && playerMove == 'nożyce') {
+    printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+} else if (computerMove == 'papier' && playerMove == 'kamień') {
+    printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+} else if (computerMove == 'nożyce' && playerMove == "papier") {
+    printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+} else if (computerMove == playerMove) {
+    printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
+} else if (playerMove == 'nieznany ruch'){
+    printMessage('Nie sądziłem że ktoś może być w stanie no zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
+} else {
+    printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
 }
