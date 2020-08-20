@@ -48,50 +48,65 @@ if (computerMove == 'kamień' && playerMove == 'nożyce') {
     printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
 } */
 
-
-function getMovieName(argMoveId) {
-    if (argMoveId == 1) {
-        return 'kamień';
-    } else if (argMoveId == 2) {
-        return 'papier';
-    } else if (argMoveId == 3) {
-        return 'nożyce';
-    } else {
-        printMessage('Nie znam ruchu o ID ' + argMoveId);
-        return 'nieznany ruch';
+function playGame (playerInput) {
+    clearMessages();
+    function getMovieName(argMoveId) {
+        if (argMoveId == 1) {
+            return 'kamień';
+        } else if (argMoveId == 2) {
+            return 'papier';
+        } else if (argMoveId == 3) {
+            return 'nożyce';
+        } else {
+            printMessage('Nie znam ruchu o ID ' + argMoveId);
+            return 'nieznany ruch';
+        }
     }
+    
+    function displayResult(argComputerMove, argPlayerMove) {
+        printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + argPlayerMove + '.');
+        if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
+            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+        } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
+            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+        } else if (argComputerMove == 'nożyce' && argPlayerMove == "papier") {
+            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+        } else if (argComputerMove == argPlayerMove) {
+            printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
+        } else if (argPlayerMove == 'nieznany ruch'){
+            printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
+        } else {
+            printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
+        }
+    }
+    
+    // Generate random number
+    let computerInput = Math.floor(Math.random() * 3 + 1);
+    console.log('Komputer: ' + computerInput);
+    
+    //Transfer Random number into string
+    let computerMove = getMovieName (computerInput);
+    
+    // Ask player for input
+    // let playerInput = prompt ('Wybierz swój ruch! 1 - kamień, 2 - papier, 3 - nożyce');
+    // console.log ('Gracz: ' + playerInput);
+    
+    // Transfer player input into string
+    let playerMove = getMovieName(playerInput);
+    
+    // Print resoult
+    displayResult(computerMove, playerMove);
 }
 
-function displayResult(argComputerMove, argPlayerMove) {
-    printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + argPlayerMove + '.');
-    if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
-        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
-    } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
-        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
-    } else if (argComputerMove == 'nożyce' && argPlayerMove == "papier") {
-        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
-    } else if (argComputerMove == argPlayerMove) {
-        printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
-    } else if (argPlayerMove == 'nieznany ruch'){
-        printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
-    } else {
-        printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
-    }
-}
 
-// Generate random number
-let computerInput = Math.floor(Math.random() * 3 + 1);
-console.log('Komputer: ' + computerInput);
 
-//Transfer Random number into string
-let computerMove = getMovieName (computerInput);
+let rockButton = document.getElementById('rock');
+rockButton.addEventListener('click', function () {playGame(1)});
 
-// Ask player for input
-let playerInput = prompt ('Wybierz swój ruch! 1 - kamień, 2 - papier, 3 - nożyce');
-console.log ('Gracz: ' + playerInput);
+let paperButton = document.getElementById('paper');
+paperButton.addEventListener('click', function() {playGame(2)});
 
-// Transfer player input into string
-let playerMove = getMovieName(playerInput);
+let scissorsButton = document.getElementById('scissors');
+scissorsButton.addEventListener('click', function() {playGame(3)});
 
-// Print resoult
-displayResult(computerMove, playerMove);
+  
