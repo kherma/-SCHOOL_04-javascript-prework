@@ -44,7 +44,7 @@ if (computerMove == 'kamień' && playerMove == 'nożyce') {
 } else if (computerMove == playerMove) {
     printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
 } else if (playerMove == 'nieznany ruch'){
-    printMessage('Nie sądziłem że ktoś może być w stanie no zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
+    printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
 } else {
     printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
 }
