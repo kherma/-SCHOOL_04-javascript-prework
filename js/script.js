@@ -1,10 +1,9 @@
-// Generate random number
-let calculations = Math.floor(Math.random() * 3 + 1);
-
-console.log('Wylosowana liczba to: ' + calculations);
+/* // Generate random number
+let computerInput = Math.floor(Math.random() * 3 + 1);
+console.log('Komputer: ' + computerInput);
 
 //Transfer Random number into string
-let computerMove = 'Nieznany ruch';
+let computerMove = getMovieName (computerInput);
 
 if (calculations == 1) {
     computerMove = 'kamień';
@@ -16,11 +15,10 @@ if (calculations == 1) {
 
 // Ask player for input
 let playerInput = prompt ('Wybierz swój ruch! 1 - kamień, 2 - papier, 3 - nożyce');
-
-console.log (playerInput);
+console.log ('Gracz: ' + playerInput);
 
 // Transfer player input into string
-let playerMove = 'nieznany ruch';
+let playerMove = getMovieName(playerInput);
 
 if (playerInput == 1) {
     playerMove = 'kamień';
@@ -33,6 +31,7 @@ if (playerInput == 1) {
 }
 
 // Print resoult
+displayResult(computerMove, playerMove);
 printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + playerMove + '.');
 
 if (computerMove == 'kamień' && playerMove == 'nożyce') {
@@ -47,4 +46,52 @@ if (computerMove == 'kamień' && playerMove == 'nożyce') {
     printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
 } else {
     printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
+} */
+
+
+function getMovieName(argMoveId) {
+    if (argMoveId == 1) {
+        return 'kamień';
+    } else if (argMoveId == 2) {
+        return 'papier';
+    } else if (argMoveId == 3) {
+        return 'nożyce';
+    } else {
+        printMessage('Nie znam ruchu o ID ' + argMoveId);
+        return 'nieznany ruch';
+    }
 }
+
+function displayResult(argComputerMove, argPlayerMove) {
+    printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + argPlayerMove + '.');
+    if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
+        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+    } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
+        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+    } else if (argComputerMove == 'nożyce' && argPlayerMove == "papier") {
+        printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+    } else if (argComputerMove == argPlayerMove) {
+        printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
+    } else if (argPlayerMove == 'nieznany ruch'){
+        printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
+    } else {
+        printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
+    }
+}
+
+// Generate random number
+let computerInput = Math.floor(Math.random() * 3 + 1);
+console.log('Komputer: ' + computerInput);
+
+//Transfer Random number into string
+let computerMove = getMovieName (computerInput);
+
+// Ask player for input
+let playerInput = prompt ('Wybierz swój ruch! 1 - kamień, 2 - papier, 3 - nożyce');
+console.log ('Gracz: ' + playerInput);
+
+// Transfer player input into string
+let playerMove = getMovieName(playerInput);
+
+// Print resoult
+displayResult(computerMove, playerMove);
