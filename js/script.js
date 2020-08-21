@@ -50,6 +50,8 @@ if (computerMove == 'kamień' && playerMove == 'nożyce') {
 
 function playGame (playerInput) {
     clearMessages();
+    clearScore();
+    printScore('your score: ' + playerScore + " MY SCORE: " + computerScore);
     function getMovieName(argMoveId) {
         if (argMoveId == 1) {
             return 'kamień';
@@ -64,22 +66,34 @@ function playGame (playerInput) {
     }
     
     function displayResult(argComputerMove, argPlayerMove) {
-        printMessage('Zagrałem ' + computerMove + '! Twój ruch to ' + argPlayerMove + '.');
+        printMessage('Zagrałem ' + computerMove +'! Twój ruch to ' + argPlayerMove + '.');
         if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
-            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+            printMessage('- HaHaHA! Wygrałem, jakie to wspaniałe!');
+            gameScore('computer');
         } else if (argComputerMove == 'papier' && argPlayerMove == 'kamień') {
-            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+            printMessage('- HaHaHA! Wygrałem, jakie to wspaniałe!');
+            gameScore('computer');
         } else if (argComputerMove == 'nożyce' && argPlayerMove == "papier") {
-            printMessage('HaHaHA! Wygrałem, jakie to wspaniałe!');
+            printMessage('- HaHaHA! Wygrałem, jakie to wspaniałe!');
+            gameScore('computer');
         } else if (argComputerMove == argPlayerMove) {
-            printMessage('Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
+            printMessage('- Wstyd mi że ktoś taki jak ty pomyślał to samo co ktoś taki jak JA!');
         } else if (argPlayerMove == 'nieznany ruch'){
-            printMessage('Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
+            printMessage('- Nie sądziłem że ktoś może być w stanie nie zrozumieć zasad tej gry... Czasem żałuję że Terminator to tylko film.');
         } else {
-            printMessage('Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
+            printMessage('- Gratuluję... może nagrasz relację z tego "zwycięstwa"?');
+            gameScore('player');
+        }
+
+        function gameScore (argGame) {
+            if (argGame == 'computer') {
+                computerScore = computerScore + 1;
+            } else if (argGame == 'player') {
+                playerScore = playerScore + 1;
+            }
         }
     }
-    
+
     // Generate random number
     let computerInput = Math.floor(Math.random() * 3 + 1);
     console.log('Komputer: ' + computerInput);
@@ -99,7 +113,6 @@ function playGame (playerInput) {
 }
 
 
-
 let rockButton = document.getElementById('rock');
 rockButton.addEventListener('click', function () {playGame(1)});
 
@@ -109,4 +122,6 @@ paperButton.addEventListener('click', function() {playGame(2)});
 let scissorsButton = document.getElementById('scissors');
 scissorsButton.addEventListener('click', function() {playGame(3)});
 
-  
+let playerScore = 0;
+let computerScore = 0;
+

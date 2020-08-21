@@ -3,17 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="container">
-		<div id="buttons">
-			<button id="rock">Kamień</button>
-			<button id="paper">Papier</button>
-			<button id="scissors">Nożyce</button>
+	<header>
+		<div class="container">
+			<h1>Are you afraid of death?</h1>
+			<span class="welcome-page">
+				<p>If somehow not, and you are so confident about your abilities you can always try to defeat me! The most arrogant and extraordinary artificial intelligence create by some human beings as a prove that no one could not defeat technology! </p>
+			</span>
 		</div>
-        <div id="messages"></div>
-	</div>
+	</header>
+
+	<main>
+		<div class="container">
+			<div id="resoult"></div>
+			<div id="buttons">
+				<button class="btn" id="rock"><i class="far fa-hand-rock"></i></button>
+				<button class="btn" id="paper"><i class="far fa-hand-paper"></i></button>
+				<button class="btn" id="scissors"><i class="far fa-hand-scissors"></i></button>
+			</div>
+			<div class="game-window">
+				<div id="messages"></div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<p>&copy; 2020, Kamil Herma. Have fun and play hard!</p>
+	</footer>
+
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
 </body>
