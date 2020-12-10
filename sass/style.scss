@@ -1,0 +1,91 @@
+/* CSS Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables */
+$font-light: #3B3F4C;
+$font-red: #A62929;
+$bg-light: #E2E5EB;
+$bg-dark: #2C3A3A;
+
+/* Global */
+body {
+    // background: url(https://images.pexels.com/photos/479453/pexels-photo-479453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) no-repeat center center/cover;
+    background: $bg-light;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: $font-light;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.btn {
+    font-size: 4em;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    border: 3px solid $font-red;
+    border-radius: 50%;
+    background: $bg-dark;
+    color: $font-red;
+    cursor: pointer;
+}
+
+/* Header */
+header {
+    height: 25vh;
+    .welcome-page {
+        text-align: justify;
+    }
+    p {
+        max-width: 500px;
+        margin: 40px auto;
+    }
+}
+
+/* Main */
+main {
+    height: 55vh;
+    #resoult {
+        margin-bottom: 30px;
+    }
+    .game-window {
+        margin: 50px;
+        #messages div {
+            margin-top: 70px;
+            font-size: 1.2em;
+        }
+        #messages div:first-of-type {
+            font-size: 2em;
+        }
+    }
+}
+
+/* Footer */
+footer {
+    background: url(https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500) no-repeat center center/cover;
+    text-align: center;
+    height: 20vh;
+    font-size: 0.9em;
+    font-weight: lighter;
+    opacity: 0.9;
+    font-weight: bold;
+    p {
+        margin-right: 270px;
+        padding-top: 20px;
+    }
+}
