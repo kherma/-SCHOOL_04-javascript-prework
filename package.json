@@ -23,7 +23,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://kherma.github.io/javascript-prework",
+  "homepage": "https://kherma.github.io/school-04-javascript-prework/",
   "devDependencies": {
     "autoprefixer-cli": "^1.0.0",
     "browser-sync": "^2.26.12",
